@@ -1,0 +1,38 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Chip from "./Chip.astro";
+
+interface Props {
+    project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+const { title, tags } = project.data;
+const { Content } = await project.render();
+---
+
+<article>
+    <h3 id={title}>{title}</h3>
+    <Content />
+    <div class="tags">
+        {tags.map((t) => <Chip text={t} />)}
+    </div>
+</article>
+
+<style>
+    article {
+        background-color: var(--primary-container);
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0.5px 0.5px 0.5px var(--primary);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        margin-top: 10px;
+    }
+</style>

@@ -1,0 +1,23 @@
+---
+import Book from "../components/Book.astro";
+import Toc from "../components/Toc.astro";
+import TocEntry from "../components/TocEntry.astro";
+import ItemLayout from "../layouts/ItemLayout.astro";
+import { getCollection } from "astro:content";
+
+const books = await getCollection("books");
+---
+
+<ItemLayout>
+    <h2 slot="header">Books I read</h2>
+    <Toc slot="toc">
+        {
+            books.map((p) => (
+                <TocEntry href={"#".concat(p.data.title)} text={p.data.title} />
+            ))
+        }
+    </Toc>
+    <Fragment slot="items">
+        {books.map((p) => <Book book={p} />)}
+    </Fragment>
+</ItemLayout>
