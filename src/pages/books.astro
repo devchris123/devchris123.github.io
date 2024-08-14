@@ -9,7 +9,7 @@ import i18next, { t, changeLanguage } from "i18next";
 changeLanguage("de");
 
 const books = await getCollection("books", ({ id }) => {
-  return id.startsWith(i18next.language);
+    return id.startsWith(i18next.language);
 });
 ---
 

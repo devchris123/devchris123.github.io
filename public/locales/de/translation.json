@@ -34,6 +34,15 @@
   "resume": {
     "header": "Lebenslauf"
   },
+  "personal-info": {
+    "header": "Angaben zur Person",
+    "name": "Name",
+    "birthdate": "Geburtsdatum",
+    "birthplace": "Geburtsort",
+    "nationality": "Staatsangehörigkeit",
+    "address": "Adresse",
+    "email": "Email"
+  },
   "books": {
     "header": "Lieblingsbücher"
   },

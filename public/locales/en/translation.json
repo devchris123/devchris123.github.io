@@ -34,6 +34,9 @@
   "resume": {
     "header": "CV"
   },
+  "personal-info": {
+    "header": "Personal Information"
+  },
   "books": {
     "header": "Books"
   },

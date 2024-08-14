@@ -4,39 +4,43 @@ import Timeline from "../components/Timeline.astro";
 import Layout from "../layouts/Layout.astro";
 import portrait from "../images/portrait-300x200.jpg";
 import { t, changeLanguage } from "i18next";
+import ResumePersonalInfo from "../components/ResumePersonalInfo.astro";
 
 changeLanguage("de");
 
 const dates = {
-  edag: {
-    fromDate: new Date(2021, 4),
-    toDate: new Date(2023, 9),
-  },
-  gvs1: {
-    fromDate: new Date(2022, 2),
-    toDate: new Date(Date.now()),
-  },
-  gvs2: {
-    fromDate: new Date(2023, 3),
-    toDate: new Date(2021, 4),
-  },
-  kit: {
-    fromDate: new Date(2021, 4),
-    toDate: new Date(2023, 4),
-  },
-  hs: {
-    fromDate: new Date(2015, 9),
-    toDate: new Date(2020, 9),
-  },
+    edag: {
+        fromDate: new Date(2021, 4),
+        toDate: new Date(2023, 9),
+    },
+    gvs1: {
+        fromDate: new Date(2022, 2),
+        toDate: new Date(Date.now()),
+    },
+    gvs2: {
+        fromDate: new Date(2023, 3),
+        toDate: new Date(2021, 4),
+    },
+    kit: {
+        fromDate: new Date(2021, 4),
+        toDate: new Date(2023, 4),
+    },
+    hs: {
+        fromDate: new Date(2015, 9),
+        toDate: new Date(2020, 9),
+    },
 };
 ---
 
 <Layout title="Welcome to Astro.">
   <div class="container" slot="main">
     <h1>{t("resume.header")}</h1>
-    <div class="portrait">
-      <Portrait src={portrait.src} />
-    </div>
+    <section class="personal-info">
+      <ResumePersonalInfo />
+      <div class="portrait">
+        <Portrait src={portrait.src} />
+      </div>
+    </section>
     <div class="timelines">
       <Timeline
         title={t("work")}
@@ -82,6 +86,7 @@ const dates = {
     display: flex;
     flex-direction: column;
     gap: 40px;
+    max-width: 800px;
   }
 
   .timelines {
@@ -89,6 +94,12 @@ const dates = {
     flex-direction: column;
     gap: 20px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto 1fr;
+  }
+  .personal-info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
   }
 </style>

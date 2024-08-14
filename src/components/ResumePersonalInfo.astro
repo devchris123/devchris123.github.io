@@ -1,0 +1,96 @@
+---
+import { t } from "i18next";
+---
+
+<article>
+  <h2>{t("personal-info.header")}</h2>
+  <dl>
+    <div>
+      <dt>{t("personal-info.name")}</dt>
+      <dd>Christopher</dd>
+    </div>
+    <div>
+      <dt>{t("personal-info.birthdate")}</dt>
+      <dd>{new Date(2023, 9, 7).toLocaleDateString(Astro.currentLocale)}</dd>
+    </div>
+    <div>
+      <dt>{t("personal-info.birthplace")}</dt>
+      <dd>Mannheim</dd>
+    </div>
+    <div>
+      <dt>{t("personal-info.nationality")}</dt>
+      <dd>
+        {
+          new Intl.DisplayNames([Astro.currentLocale ?? "DE"], {
+            type: "language",
+          }).of("DE")
+        }
+      </dd>
+    </div>
+    <div>
+      <dt>{t("personal-info.address")}</dt>
+      <dd>
+        <address>
+          <p>Stolberger Straße 4,</p>
+          <p>68305 Mannheim</p>
+        </address>
+      </dd>
+    </div>
+    <div class="email">
+      <dt>{t("personal-info.email")}</dt>
+      <dd>
+        <address>
+          <a href="mailto:wunder.christopher95@gmail.com"
+            >wunder.christopher95@gmail.com</a
+          >
+        </address>
+      </dd>
+    </div>
+  </dl>
+</article>
+
+<style>
+  h2 {
+    margin-bottom: 20px;
+  }
+  dl {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  dl div {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  dt::after {
+    content: ":";
+  }
+  address {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  .email {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @supports (display: grid) {
+    dl {
+      display: grid;
+      grid-template-columns: auto auto;
+    }
+
+    dl div {
+      display: contents;
+    }
+    address {
+      display: inline;
+    }
+    .email dt,
+    .email dd {
+      grid-column: 1 / 3;
+    }
+  }
+</style>
