@@ -1,13 +1,16 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { t, changeLanguage } from "i18next";
+import { Trans } from "astro-i18next/components";
 
 changeLanguage("de");
 ---
 
 <Layout title="Welcome to Astro.">
   <div class="intro" slot="main">
-    <p>{t("index.p1")}</p>
+    <p>
+      <Trans i18nKey="index.p1"><i lang="en">Fullstack Developer</i></Trans>
+    </p>
     <p>{t("index.p2")}</p>
     <p>{t("index.p3")}</p>
   </div>

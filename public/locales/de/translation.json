@@ -24,8 +24,8 @@
     "description": "Bachelor Maschinenbau HS Mannheim"
   },
   "index": {
-    "p1": "Hi, ich bin Christopher, ich bin Fullstack Developer und das ist meine selbsterstellte Portfolio-Webseite.",
-    "p2": "Hier findest du meinen Lebenslauf, einige meiner Projekte und Reviews von Büchern, die ich besonders interessant fand.",
+    "p1": "Hi, ich bin Christopher, ich bin <0>Fullstack Developer</0> und das ist meine selbsterstellte Portfolio-Webseite.",
+    "p2": "Hier findest du meinen Lebenslauf, einige meiner Projekte und Rezensionen von Büchern, die ich besonders interessant fand.",
     "p3": "Willkommen und viel Spaß :)"
   },
   "projects": {
