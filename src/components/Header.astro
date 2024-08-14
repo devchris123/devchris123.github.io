@@ -5,16 +5,13 @@ import { t } from "i18next";
 ---
 
 <div class="header">
-  <div class="headerlinks">
-    <h1>{t("header")}</h1>
-    <LanguageSelector showFlag={true} />
-  </div>
   <ul>
-    <a href={localizePath("/")}>{t("nav.home")}</a>
-    <a href={localizePath("/resume")}>{t("nav.resume")}</a>
-    <a href={localizePath("/projects")}>{t("nav.projects")}</a>
-    <a href={localizePath("/books")}>{t("nav.books")}</a>
+    <li><a href={localizePath("/")}>{t("nav.home")}</a></li>
+    <li><a href={localizePath("/resume")}>{t("nav.resume")}</a></li>
+    <li><a href={localizePath("/projects")}>{t("nav.projects")}</a></li>
+    <li><a href={localizePath("/books")}>{t("nav.books")}</a></li>
   </ul>
+  <LanguageSelector class="language" showFlag={true} />
 </div>
 
 <style>
@@ -23,12 +20,7 @@ import { t } from "i18next";
     color: var(--on-surface);
     padding: 20px;
     display: flex;
-    flex-direction: column;
     align-items: flex-start;
-    gap: 20px;
-  }
-  .headerlinks {
-    display: flex;
     gap: 20px;
   }
   .header ul {
@@ -36,12 +28,19 @@ import { t } from "i18next";
     flex-wrap: wrap;
     gap: 15px;
   }
-  .header a {
-    text-decoration: none;
+  .header li {
     padding: 10px;
     background-color: var(--container);
     color: var(--on-surface);
     border-radius: 3px;
     box-shadow: 0.2px 0.2px black;
+  }
+  .header a {
+    text-decoration: none;
+    color: inherit;
+  }
+  .language {
+    padding: 5px 10px;
+    border-radius: 3px;
   }
 </style>

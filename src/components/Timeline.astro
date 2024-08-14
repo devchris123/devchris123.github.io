@@ -1,7 +1,7 @@
 ---
 interface CarreerEvent {
-  fromDate: string;
-  toDate: string;
+  fromDate: Date;
+  toDate: Date;
   description: string;
 }
 
@@ -10,24 +10,35 @@ interface Props {
   events?: CarreerEvent[];
 }
 
+const locale = Astro.currentLocale;
+const dateOpts: Intl.DateTimeFormatOptions = {
+  year: "numeric",
+  month: "short",
+};
+
 const { events = [], title } = Astro.props;
 ---
 
 <article>
   <h2>{title}</h2>
-  <div class="timeline">
+  <ol reversed class="timeline">
     {
       events.map((e) => (
-        <div class="event">
+        <li class="event">
           <div class="datecontainer">
-            <span class="date">{e.fromDate}</span>-
-            <span class="date">{e.toDate}</span>
+            <time datetime={e.fromDate.toISOString()} class="date">
+              {e.fromDate.toLocaleDateString(locale, dateOpts)}
+            </time>
+            -
+            <time datetime={e.toDate.toISOString()} class="date">
+              {e.toDate.toLocaleDateString(locale, dateOpts)}
+            </time>
           </div>
-          <span>{e.description}</span>
-        </div>
+          <p>{e.description}</p>
+        </li>
       ))
     }
-  </div>
+  </ol>
 </article>
 
 <style>

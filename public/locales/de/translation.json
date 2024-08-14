@@ -1,41 +1,41 @@
 {
-    "header": "Christopher's Webseite",
-    "nav": {
-        "home": "Home",
-        "resume": "Lebenslauf",
-        "projects": "Projekte",
-        "books": "Bücher"
-    },
-    "work": "Berufserfahrung",
-    "training": "Ausbildung",
-    "edag": {
-        "description": "Studentischer Entwickler bei EDAG Engineering GmbH"
-    },
-    "gvs1": {
-        "description": "Studentischer Entwickler bei Green Vision Solutions GmbH"
-    },
-    "gvs2": {
-        "description": "Entwickler bei Green Vision Solutions GmbH"
-    },
-    "kit": {
-        "description": "Master Technomathematik KIT Karlsruhe"
-    },
-    "hs": {
-        "description": "Bachelor Maschinenbau HS Mannheim"
-    },
-    "index": {
-        "p1": "Hi, ich bin Christopher, ich bin Fullstack Developer und das ist meine selbsterstellte Portfolio-Webseite.",
-        "p2": "Hier findest du meinen Lebenslauf, einige meiner Projekte und Reviews von Büchern, die ich besonders interessant fand.",
-        "p3": "Willkommen und viel Spaß :)"
-    },
-    "projects": {
-        "header": "Meine Projekte"
-    }, 
-    "resume": {
-        "header": "Lebenslauf"
-    },
-    "books": {
-        "header": "Meine Lieblingsbücher"
-    },
-    "by": "von"
+  "header": "Christopher's Webseite",
+  "nav": {
+    "home": "Home",
+    "resume": "Lebenslauf",
+    "projects": "Projekte",
+    "books": "Bücher"
+  },
+  "work": "Berufserfahrung",
+  "training": "Ausbildung",
+  "edag": {
+    "description": "Studentischer Entwickler bei EDAG Engineering GmbH"
+  },
+  "gvs1": {
+    "description": "Studentischer Entwickler bei Green Vision Solutions GmbH"
+  },
+  "gvs2": {
+    "description": "Entwickler bei Green Vision Solutions GmbH"
+  },
+  "kit": {
+    "description": "Master Technomathematik KIT Karlsruhe"
+  },
+  "hs": {
+    "description": "Bachelor Maschinenbau HS Mannheim"
+  },
+  "index": {
+    "p1": "Hi, ich bin Christopher, ich bin Fullstack Developer und das ist meine selbsterstellte Portfolio-Webseite.",
+    "p2": "Hier findest du meinen Lebenslauf, einige meiner Projekte und Reviews von Büchern, die ich besonders interessant fand.",
+    "p3": "Willkommen und viel Spaß :)"
+  },
+  "projects": {
+    "header": "Projekte"
+  },
+  "resume": {
+    "header": "Lebenslauf"
+  },
+  "books": {
+    "header": "Lieblingsbücher"
+  },
+  "by": "von"
 }

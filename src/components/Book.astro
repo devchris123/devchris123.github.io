@@ -33,9 +33,15 @@ const { title, authors, rating, tags = [] } = book.data;
     }
   </p>
   <Content />
-  <div class="tags">
-    {tags.map((t) => <Chip text={t} />)}
-  </div>
+  <ul class="tags">
+    {
+      tags.map((t) => (
+        <li>
+          <Chip text={t} />
+        </li>
+      ))
+    }
+  </ul>
 </article>
 
 <style>
@@ -62,7 +68,7 @@ const { title, authors, rating, tags = [] } = book.data;
   .author {
     font-style: italic;
   }
-  article ul {
+  ul.author {
     list-style: circle inside none;
   }
 </style>

@@ -14,7 +14,7 @@ const books = await getCollection("books", ({ id }) => {
 ---
 
 <ItemLayout>
-  <h2 slot="header">{t("books.header")}</h2>
+  <h1 slot="header">{t("books.header")}</h1>
   <Toc slot="toc">
     {
       books.map((p) => (
@@ -23,6 +23,12 @@ const books = await getCollection("books", ({ id }) => {
     }
   </Toc>
   <Fragment slot="items">
-    {books.map((p) => <Book book={p} />)}
+    {
+      books.map((p) => (
+        <li>
+          <Book book={p} />
+        </li>
+      ))
+    }
   </Fragment>
 </ItemLayout>

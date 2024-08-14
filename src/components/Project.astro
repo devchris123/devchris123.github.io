@@ -14,9 +14,15 @@ const { Content } = await project.render();
 <article>
   <h3 id={title}>{title}</h3>
   <Content />
-  <div class="tags">
-    {tags.map((t) => <Chip text={t} />)}
-  </div>
+  <ul class="tags">
+    {
+      tags.map((t) => (
+        <li>
+          <Chip text={t} />
+        </li>
+      ))
+    }
+  </ul>
 </article>
 
 <style>
