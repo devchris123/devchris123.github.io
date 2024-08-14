@@ -1,0 +1,15 @@
+---
+import { LanguageSelector as LangSelector } from "astro-i18next/components";
+---
+
+<LangSelector class="language" showFlag={true} />
+
+<style>
+  .language {
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: var(--surface);
+    color: var(--on-surface);
+  }
+</style>

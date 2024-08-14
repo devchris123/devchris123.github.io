@@ -199,6 +199,12 @@ const { title } = Astro.props;
       --container-high: var(--md-sys-color-surface-container-high);
       --container-highest: var(--md-sys-color-surface-container-highest);
       --on-surface: var(--md-sys-color-on-surface);
+
+      /* transitions */
+      --default-transition-bg: background-color 100ms ease-in 50ms;
+      --default-transition-col: color 100ms ease-in 50ms;
+      --fast-transition-bg: background-color 50ms ease-in 25ms;
+      --fast-transition-col: color 50ms ease-in 25ms;
     }
     html {
       font-family: Roboto, sans-serif, system-ui;
@@ -215,6 +221,7 @@ const { title } = Astro.props;
     }
     main {
       padding: 20px;
+      flex: 1;
     }
     h1 {
       font-size: 1.5rem;

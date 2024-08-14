@@ -76,6 +76,22 @@ import { t } from "i18next";
     flex-direction: column;
   }
 
+  .email a {
+    padding: 10px 0;
+    text-decoration: none;
+    font-weight: 500;
+    color: inherit;
+    color: var(--primary);
+  }
+  .email {
+    & a:link {
+      text-decoration: underline;
+    }
+    & a:hover {
+      color: var(--secondary);
+    }
+  }
+
   @supports (display: grid) {
     dl {
       display: grid;

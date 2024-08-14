@@ -23,4 +23,19 @@ const { href, text } = Astro.props;
     position: relative;
     right: 20px;
   }
+  li:hover {
+    color: var(--primary);
+    background-color: var(--surface-dim);
+  }
+  a:hover {
+    color: var(--primary);
+  }
+  :not(a:hover),
+  :not(li:hover) {
+    transition: var(--fast-transition-col), var(--fast-transition-bg);
+  }
+  a:hover,
+  li:hover {
+    transition: var(--fast-transition-col);
+  }
 </style>

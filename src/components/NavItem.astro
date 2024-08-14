@@ -1,0 +1,58 @@
+---
+interface Props {
+  href: string;
+  text: string;
+}
+
+const currPath = Astro.url.pathname;
+const { href, text } = Astro.props;
+---
+
+<a class:list={["item", { "current-page": currPath === href }]} href={href}
+  >{text}</a
+>
+
+<style>
+  a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    padding: 10px;
+    background-color: var(--container);
+    color: var(--on-surface);
+    border-radius: 3px;
+    box-shadow: 0.2px 0.2px black;
+  }
+  .item {
+  }
+  .item:link {
+  }
+  .item:visited {
+    background-color: {
+      currpath==="/"?"green": "hey";
+    }
+  }
+  .item:focus {
+    background-color: var(--primary);
+    color: var(--on-primary);
+  }
+  .item:hover {
+    background-color: var(--primary-container);
+    color: var(--on-primary-container);
+  }
+  .item:active,
+  .current-page {
+    background-color: var(--primary);
+    color: var(--on-primary);
+  }
+  :not(.item:hover),
+  :not(.item:active),
+  :not(.item:focus) {
+    transition: var(--default-transition-bg), var(--default-transition-col);
+  }
+  .item:hover,
+  .item.active,
+  .item:focus {
+    transition: var(--default-transition-bg), var(--default-transition-col);
+  }
+</style>

@@ -1,17 +1,20 @@
 ---
 import { localizePath } from "astro-i18next";
-import { LanguageSelector } from "astro-i18next/components";
 import { t } from "i18next";
+import NavItem from "./NavItem.astro";
+import LanguageSelector from "./LanguageSelector.astro";
 ---
 
 <div class="header">
   <ul>
-    <li><a href={localizePath("/")}>{t("nav.home")}</a></li>
-    <li><a href={localizePath("/resume")}>{t("nav.resume")}</a></li>
-    <li><a href={localizePath("/projects")}>{t("nav.projects")}</a></li>
-    <li><a href={localizePath("/books")}>{t("nav.books")}</a></li>
+    <li><NavItem href={localizePath("/")} text={t("nav.home")} /></li>
+    <li><NavItem href={localizePath("/resume")} text={t("nav.resume")} /></li>
+    <li>
+      <NavItem href={localizePath("/projects")} text={t("nav.projects")} />
+    </li>
+    <li><NavItem href={localizePath("/books")} text={t("nav.books")} /></li>
   </ul>
-  <LanguageSelector class="language" showFlag={true} />
+  <LanguageSelector />
 </div>
 
 <style>
@@ -29,19 +32,15 @@ import { t } from "i18next";
     flex-wrap: wrap;
     gap: 15px;
   }
-  .header li {
-    padding: 10px;
-    background-color: var(--container);
-    color: var(--on-surface);
-    border-radius: 3px;
-    box-shadow: 0.2px 0.2px black;
-  }
-  .header a {
-    text-decoration: none;
-    color: inherit;
-  }
-  .language {
-    padding: 5px 10px;
-    border-radius: 3px;
+  @supports (display: grid) {
+    .header ul {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    @media screen and (min-width: 600px) {
+      .header ul {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+      }
+    }
   }
 </style>

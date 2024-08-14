@@ -16,7 +16,9 @@ const { text } = Astro.props;
     color: var(--on-secondary-container);
     border-radius: 40px;
     padding: 8px 12px;
-    box-shadow: 0.2px 0.2px 0.2px var(--secondary);
+    box-shadow:
+      0.2px 0.2px 1px 0.5px var(--secondary),
+      -0.2px -0.2px 1px 0.5px var(--secondary);
   }
   p {
     text-transform: uppercase;
