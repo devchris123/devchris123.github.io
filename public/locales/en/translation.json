@@ -1,0 +1,41 @@
+{
+    "header": "Christopher's website",
+    "nav": {
+        "home": "Home",
+        "resume": "Resume",
+        "projects": "Projects",
+        "books": "Books"
+    },
+    "work": "Work experience",
+    "training": "Training",
+    "edag": {
+        "description": "Student developer at EDAG Engineering GmbH"
+    },
+    "gvs1": {
+        "description": "Student developer at Green Vision Solutions GmbH"
+    },
+    "gvs2": {
+        "description": "Developer at Vision Solutions GmbH"
+    },
+    "kit": {
+        "description": "Masters Technomathematics at KIT Karlsruhe"
+    },
+    "hs": {
+        "description": "Bachelor Mechanical Engineering at HS Mannheim"
+    },
+    "index": {
+        "p1": "Hi, my name is Christopher and I'm a Fullstack Developer. This is my self-made portfolio website.",
+        "p2": "Here you can find my resume, some of my side projects worth mentioning and also a few reviews of books, that I found particularly interesting.",
+        "p3": "Feel free to have a look around."
+    },
+    "projects": {
+        "header": "Projects I made"
+    },
+    "resume": {
+        "header": "CV"
+    },
+    "books": {
+        "header": "Books I read"
+    },
+    "by": "von"
+}

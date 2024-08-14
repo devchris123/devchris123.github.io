@@ -15,7 +15,9 @@
         "usernamehw.errorlens",
         "Vue.volar",
         "antfu.iconify",
-        "antfu.unocss"
+        "antfu.unocss",
+        "DavidAnson.vscode-markdownlint",
+        "esbenp.prettier-vscode"
       ]
     }
   },

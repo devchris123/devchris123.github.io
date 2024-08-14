@@ -3,69 +3,97 @@ import Portrait from "../components/Portrait.astro";
 import Timeline from "../components/Timeline.astro";
 import Layout from "../layouts/Layout.astro";
 import portrait from "../images/portrait-300x200.jpg";
+import { t, changeLanguage } from "i18next";
+
+changeLanguage("de");
+
+const dateOpts: Intl.DateTimeFormatOptions = {
+  year: "numeric",
+  month: "short",
+};
+const locale = Astro.currentLocale;
+const dates = {
+  edag: {
+    fromDate: new Date(2021, 4).toLocaleDateString(locale, dateOpts),
+    toDate: new Date(2023, 9).toLocaleDateString(locale, dateOpts),
+  },
+  gvs1: {
+    fromDate: new Date(2022, 2).toLocaleDateString(locale, dateOpts),
+    toDate: new Date(Date.now()).toLocaleDateString(locale, dateOpts),
+  },
+  gvs2: {
+    fromDate: new Date(2023, 3).toLocaleDateString(locale, dateOpts),
+    toDate: new Date(2021, 4).toLocaleDateString(locale, dateOpts),
+  },
+  kit: {
+    fromDate: new Date(2021, 4).toLocaleDateString(locale, dateOpts),
+    toDate: new Date(2023, 4).toLocaleDateString(locale, dateOpts),
+  },
+  hs: {
+    fromDate: new Date(2015, 9).toLocaleDateString(locale, dateOpts),
+    toDate: new Date(2020, 9).toLocaleDateString(locale, dateOpts),
+  },
+};
 ---
 
 <Layout title="Welcome to Astro.">
-    <div class="container" slot="main">
-        <h1>Lebenslauf</h1>
-        <div class="portrait">
-            <Portrait src={portrait.src} />
-        </div>
-        <div class="timelines">
-            <Timeline
-                title="Berufserfahrung"
-                events={[
-                    {
-                        fromDate: new Date(2021, 4),
-                        toDate: new Date(2023, 9),
-                        description:
-                            "Studentischer Entwickler bei EDAG Engineering GmbH",
-                    },
-                    {
-                        fromDate: new Date(2022, 2),
-                        toDate: new Date(2023, 3),
-                        description:
-                            "Studentischer Entwickler bei Green Vision Solutions GmbH",
-                    },
-                    {
-                        fromDate: new Date(2023, 3),
-                        toDate: new Date(Date.now()),
-                        description:
-                            "Studentischer Entwickler bei Green Vision Solutions GmbH",
-                    },
-                ]}
-            />
-            <Timeline
-                title="Ausbildung"
-                events={[
-                    {
-                        fromDate: new Date(2021, 4),
-                        toDate: new Date(2023, 4),
-                        description: "Master Technomathematik KIT Karlsruhe",
-                    },
-                    {
-                        fromDate: new Date(2015, 9),
-                        toDate: new Date(2020, 9),
-                        description: "Bachlor Maschinenbau HS Mannheim",
-                    },
-                ]}
-            />
-        </div>
+  <div class="container" slot="main">
+    <h1>{t("resume.header")}</h1>
+    <div class="portrait">
+      <Portrait src={portrait.src} />
     </div>
+    <div class="timelines">
+      <Timeline
+        title={t("work")}
+        events={[
+          {
+            fromDate: dates.edag.fromDate,
+            toDate: dates.edag.toDate,
+            description: t("edag.description"),
+          },
+          {
+            fromDate: dates.gvs1.fromDate,
+            toDate: dates.gvs1.toDate,
+            description: t("gvs1.description"),
+          },
+          {
+            fromDate: dates.gvs2.fromDate,
+            toDate: dates.gvs2.toDate,
+            description: t("gvs2.description"),
+          },
+        ]}
+      />
+      <Timeline
+        title={t("training")}
+        events={[
+          {
+            fromDate: dates.kit.fromDate,
+            toDate: dates.kit.toDate,
+            description: t("kit.description"),
+          },
+          {
+            fromDate: dates.hs.fromDate,
+            toDate: dates.hs.toDate,
+            description: t("hs.description"),
+          },
+        ]}
+      />
+    </div>
+  </div>
 </Layout>
 
 <style>
-    .container {
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
-    }
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
 
-    .timelines {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
+  .timelines {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 </style>

@@ -1,219 +1,218 @@
 ---
 import Header from "../components/Header.astro";
+import i18next from "i18next";
+import { HeadHrefLangs } from "astro-i18next/components";
 
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<header>
-		<Header />
-	</header>
-	<body>
-		<main><slot name="main" /></main>
-	</body>
+<html lang={i18next.language}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <HeadHrefLangs />
+    <title>{title}</title>
+  </head>
+  <header>
+    <Header />
+  </header>
+  <body>
+    <main><slot name="main" /></main>
+  </body>
 
-	<style is:global>
-		/* Style reset */
-		html,
-		body,
-		div,
-		span,
-		applet,
-		object,
-		iframe,
-		h1,
-		h2,
-		h3,
-		h4,
-		h5,
-		h6,
-		p,
-		blockquote,
-		pre,
-		a,
-		abbr,
-		acronym,
-		address,
-		big,
-		cite,
-		code,
-		del,
-		dfn,
-		em,
-		img,
-		ins,
-		kbd,
-		q,
-		s,
-		samp,
-		small,
-		strike,
-		strong,
-		sub,
-		sup,
-		tt,
-		var,
-		b,
-		u,
-		i,
-		center,
-		dl,
-		dt,
-		dd,
-		ol,
-		ul,
-		li,
-		fieldset,
-		form,
-		label,
-		legend,
-		table,
-		caption,
-		tbody,
-		tfoot,
-		thead,
-		tr,
-		th,
-		td,
-		article,
-		aside,
-		canvas,
-		details,
-		embed,
-		figure,
-		figcaption,
-		footer,
-		header,
-		hgroup,
-		menu,
-		nav,
-		output,
-		ruby,
-		section,
-		summary,
-		time,
-		mark,
-		audio,
-		video {
-			margin: 0;
-			padding: 0;
-			border: 0;
-			font-size: 100%;
-			font: inherit;
-			vertical-align: baseline;
-		}
-		/* HTML5 display-role reset for older browsers */
-		article,
-		aside,
-		details,
-		figcaption,
-		figure,
-		footer,
-		header,
-		hgroup,
-		menu,
-		nav,
-		section {
-			display: block;
-		}
-		body {
-			line-height: 1;
-		}
-		ol,
-		ul {
-			list-style: none;
-		}
-		blockquote,
-		q {
-			quotes: none;
-		}
-		blockquote:before,
-		blockquote:after,
-		q:before,
-		q:after {
-			content: "";
-			content: none;
-		}
-		table {
-			border-collapse: collapse;
-			border-spacing: 0;
-		}
+  <style is:global>
+    /* Style reset */
+    html,
+    body,
+    div,
+    span,
+    applet,
+    object,
+    iframe,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    blockquote,
+    pre,
+    a,
+    abbr,
+    acronym,
+    address,
+    big,
+    cite,
+    code,
+    del,
+    dfn,
+    em,
+    img,
+    ins,
+    kbd,
+    q,
+    s,
+    samp,
+    small,
+    strike,
+    strong,
+    sub,
+    sup,
+    tt,
+    var,
+    b,
+    u,
+    i,
+    center,
+    dl,
+    dt,
+    dd,
+    ol,
+    ul,
+    li,
+    fieldset,
+    form,
+    label,
+    legend,
+    table,
+    caption,
+    tbody,
+    tfoot,
+    thead,
+    tr,
+    th,
+    td,
+    article,
+    aside,
+    canvas,
+    details,
+    embed,
+    figure,
+    figcaption,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    output,
+    ruby,
+    section,
+    summary,
+    time,
+    mark,
+    audio,
+    video {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      font-size: 100%;
+      font: inherit;
+      vertical-align: baseline;
+    }
+    /* HTML5 display-role reset for older browsers */
+    article,
+    aside,
+    details,
+    figcaption,
+    figure,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    section {
+      display: block;
+    }
+    body {
+      line-height: 1;
+    }
+    ol,
+    ul {
+      list-style: none;
+    }
+    blockquote,
+    q {
+      quotes: none;
+    }
+    blockquote:before,
+    blockquote:after,
+    q:before,
+    q:after {
+      content: "";
+      content: none;
+    }
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
 
-		:root {
-			--md-sys-color-primary: rgb(76 102 43);
-			--md-sys-color-on-primary: rgb(255 255 255);
-			--md-sys-color-primary-container: rgb(205 237 163);
-			--md-sys-color-on-primary-container: rgb(16 32 0);
+    :root {
+      --md-sys-color-primary: rgb(76 102 43);
+      --md-sys-color-on-primary: rgb(255 255 255);
+      --md-sys-color-primary-container: rgb(205 237 163);
+      --md-sys-color-on-primary-container: rgb(16 32 0);
 
-			--md-sys-color-secondary: rgb(88 98 73);
-			--md-sys-color-on-secondary: rgb(255 255 255);
-			--md-sys-color-secondary-container: rgb(220 231 200);
-			--md-sys-color-on-secondary-container: rgb(21 30 11);
+      --md-sys-color-secondary: rgb(88 98 73);
+      --md-sys-color-on-secondary: rgb(255 255 255);
+      --md-sys-color-secondary-container: rgb(220 231 200);
+      --md-sys-color-on-secondary-container: rgb(21 30 11);
 
-			--md-sys-color-surface-dim: rgb(218 219 208);
-			--md-sys-color-surface-bright: rgb(249 250 239);
-			--md-sys-color-surface-container-lowest: rgb(255 255 255);
-			--md-sys-color-surface-container-low: rgb(243 244 233);
-			--md-sys-color-surface-container: rgb(238 239 227);
-			--md-sys-color-surface-container-high: rgb(232 233 222);
-			--md-sys-color-surface-container-highest: rgb(226 227 216);
-			--md-sys-color-background: rgb(249 250 239);
-			--md-sys-color-on-background: rgb(26 28 22);
-			--md-sys-color-surface: rgb(249 250 239);
-			--md-sys-color-on-surface: rgb(26 28 22);
+      --md-sys-color-surface-dim: rgb(218 219 208);
+      --md-sys-color-surface-bright: rgb(249 250 239);
+      --md-sys-color-surface-container-lowest: rgb(255 255 255);
+      --md-sys-color-surface-container-low: rgb(243 244 233);
+      --md-sys-color-surface-container: rgb(238 239 227);
+      --md-sys-color-surface-container-high: rgb(232 233 222);
+      --md-sys-color-surface-container-highest: rgb(226 227 216);
+      --md-sys-color-background: rgb(249 250 239);
+      --md-sys-color-on-background: rgb(26 28 22);
+      --md-sys-color-surface: rgb(249 250 239);
+      --md-sys-color-on-surface: rgb(26 28 22);
 
-			--primary: var(--md-sys-color-primary);
-			--on-primary: var(--md-sys-color-on-primary);
-			--primary-container: var(--md-sys-color-primary-container);
-			--on-primary-container: var(--md-sys-color-on-primary-container);
+      --primary: var(--md-sys-color-primary);
+      --on-primary: var(--md-sys-color-on-primary);
+      --primary-container: var(--md-sys-color-primary-container);
+      --on-primary-container: var(--md-sys-color-on-primary-container);
 
-			--secondary: var(--md-sys-color-secondary);
-			--on-secondary: var(--md-sys-color-on-secondary);
-			--secondary-container: var(--md-sys-color-secondary-container);
-			--on-secondary-container: var(
-				--md-sys-color-on-secondary-container
-			);
+      --secondary: var(--md-sys-color-secondary);
+      --on-secondary: var(--md-sys-color-on-secondary);
+      --secondary-container: var(--md-sys-color-secondary-container);
+      --on-secondary-container: var(--md-sys-color-on-secondary-container);
 
-			--background: var(--md-sys-color-background);
-			--on-background: var(--md-sys-color-on-background);
-			--surface: var(--md-sys-color-surface);
-			--surface-dim: var(--md-sys-color-surface-dim);
-			--container-lowest: var(--md-sys-color-surface-container-lowest);
-			--container-low: var(--md-sys-color-surface-container-low);
-			--container: var(--md-sys-color-surface-container);
-			--container-high: var(--md-sys-color-surface-container-high);
-			--container-highest: var(--md-sys-color-surface-container-highest);
-			--on-surface: var(--md-sys-color-on-surface);
-		}
-		html {
-			font-family: system-ui, sans-serif;
-			background: var(--background);
-			color: var(--on-background);
-		}
-		main {
-			padding: 20px;
-		}
-		h1 {
-			font-size: 1.5rem;
-		}
-		h2,
-		h3 {
-			font-size: 1.3rem;
-		}
-	</style>
-
-
+      --background: var(--md-sys-color-background);
+      --on-background: var(--md-sys-color-on-background);
+      --surface: var(--md-sys-color-surface);
+      --surface-dim: var(--md-sys-color-surface-dim);
+      --container-lowest: var(--md-sys-color-surface-container-lowest);
+      --container-low: var(--md-sys-color-surface-container-low);
+      --container: var(--md-sys-color-surface-container);
+      --container-high: var(--md-sys-color-surface-container-high);
+      --container-highest: var(--md-sys-color-surface-container-highest);
+      --on-surface: var(--md-sys-color-on-surface);
+    }
+    html {
+      font-family: system-ui, sans-serif;
+      background: var(--background);
+      color: var(--on-background);
+    }
+    main {
+      padding: 20px;
+    }
+    h1 {
+      font-size: 1.5rem;
+    }
+    h2,
+    h3 {
+      font-size: 1.3rem;
+    }
+  </style>
 </html>

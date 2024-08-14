@@ -1,37 +1,47 @@
 ---
-
+import { localizePath } from "astro-i18next";
+import { LanguageSelector } from "astro-i18next/components";
+import { t } from "i18next";
 ---
 
 <div class="header">
-	<h1>Christopher's website</h1>
-	<ul>
-		<a href="/"> Home </a>
-		<a href="/resume"> Resume </a>
-		<a href="/projects"> Projects </a>
-		<a href="books"> Books </a>
-	</ul>
+  <div class="headerlinks">
+    <h1>{t("header")}</h1>
+    <LanguageSelector showFlag={true} />
+  </div>
+  <ul>
+    <a href={localizePath("/")}>{t("nav.home")}</a>
+    <a href={localizePath("/resume")}>{t("nav.resume")}</a>
+    <a href={localizePath("/projects")}>{t("nav.projects")}</a>
+    <a href={localizePath("/books")}>{t("nav.books")}</a>
+  </ul>
 </div>
 
 <style>
-	.header {
-		background-color: var(--surface-dim);
-		color: var(--on-surface);
-		padding: 20px;
-		display: flex;
-		flex-direction: column;
-		gap: 20px;
-	}
-	.header ul {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 15px;
-	}
-	.header a {
-		text-decoration: none;
-		padding: 10px;
-		background-color: var(--container);
-		color: var(--on-surface);
-		border-radius: 3px;
-		box-shadow: 0.2px 0.2px black;
-	}
+  .header {
+    background-color: var(--surface-dim);
+    color: var(--on-surface);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .headerlinks {
+    display: flex;
+    gap: 20px;
+  }
+  .header ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  .header a {
+    text-decoration: none;
+    padding: 10px;
+    background-color: var(--container);
+    color: var(--on-surface);
+    border-radius: 3px;
+    box-shadow: 0.2px 0.2px black;
+  }
 </style>

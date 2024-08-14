@@ -1,9 +1,11 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import Chip from "./Chip.astro";
+import { t } from "i18next";
+import Rating from "./Rating.astro";
 
 interface Props {
-    book: CollectionEntry<"books">;
+  book: CollectionEntry<"books">;
 }
 
 const { book } = Astro.props;
@@ -12,46 +14,55 @@ const { title, authors, rating, tags = [] } = book.data;
 ---
 
 <article>
+  <div class="header">
     <h3 id={title}>{title}</h3>
-    <p>
-        written by {
-            authors.length === 1 ? (
-                <span class="author">{authors[0]}</span>
-            ) : (
-                <ul class="author">
-                    {authors.map((a) => (
-                        <li>{a}</li>
-                    ))}
-                </ul>
-            )
-        }
-    </p>
-    <Content />
-    <div class="tags">
-        {tags.map((t) => <Chip text={t} />)}
-    </div>
+    <Rating rating={rating} />
+  </div>
+  <p>
+    {t("by")}
+    {
+      authors.length === 1 ? (
+        <span class="author">{authors[0]}</span>
+      ) : (
+        <ul class="author">
+          {authors.map((a) => (
+            <li>{a}</li>
+          ))}
+        </ul>
+      )
+    }
+  </p>
+  <Content />
+  <div class="tags">
+    {tags.map((t) => <Chip text={t} />)}
+  </div>
 </article>
 
 <style>
-    article {
-        background-color: var(--primary-container);
-        padding: 10px;
-        border-radius: 5px;
-        box-shadow: 0.5px 0.5px 0.5px var(--primary);
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-    .tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 5px;
-        margin-top: 10px;
-    }
-    .author {
-        font-style: italic;
-    }
-    article ul {
-        list-style: circle inside none;
-    }
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  article {
+    background-color: var(--primary-container);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0.5px 0.5px 0.5px var(--primary);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 10px;
+  }
+  .author {
+    font-style: italic;
+  }
+  article ul {
+    list-style: circle inside none;
+  }
 </style>

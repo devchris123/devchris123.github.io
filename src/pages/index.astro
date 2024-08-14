@@ -1,28 +1,24 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { t, changeLanguage } from "i18next";
+
+changeLanguage("de");
 ---
 
 <Layout title="Welcome to Astro.">
-	<div class="intro" slot="main">
-		<p>
-			Hi, my name is Christopher and I'm a Fullstack Developer. This is my
-			self-made portfolio website.
-		</p>
-		<p>
-			Here you can find my resume, some of my side projects worth
-			mentioning and also a few reviews of books, that I found
-			particularly interesting.
-		</p>
-		<p>Feel free to have a look around.</p>
-	</div>
+  <div class="intro" slot="main">
+    <p>{t("index.p1")}</p>
+    <p>{t("index.p2")}</p>
+    <p>{t("index.p3")}</p>
+  </div>
 </Layout>
 
 <style>
-	.intro {
-		background-color: var(--container-low);
-		padding: 10px;
-		display: flex;
-		flex-direction: column;
-		gap: 10px;
-	}
+  .intro {
+    background-color: var(--container-low);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
 </style>

@@ -3,24 +3,24 @@ import Layout from "./Layout.astro";
 ---
 
 <Layout title="Welcome to Astro.">
-    <section slot="main">
-        <slot name="header" />
-        <slot name="toc" />
-        <div class="items">
-            <slot name="items" />
-        </div>
-    </section>
+  <section slot="main">
+    <slot name="header" />
+    <slot name="toc" />
+    <div class="items">
+      <slot name="items" />
+    </div>
+  </section>
 </Layout>
 
 <style>
-    section {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-    .items {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
 </style>

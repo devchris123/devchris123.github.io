@@ -1,26 +1,26 @@
 ---
 interface Props {
-    href: string;
-    text: string;
+  href: string;
+  text: string;
 }
 
 const { href, text } = Astro.props;
 ---
 
 <li>
-    <a href={href}>{text}</a>
+  <a href={href}>{text}</a>
 </li>
 
 <style>
-    li {
-        padding: 10px 0;
-    }
-    a {
-        text-decoration: none;
-        color: var(--on-surface);
-        padding: 10px;
-        padding-left: 20px;
-        position: relative;
-        right: 20px;
-    }
+  li {
+    padding: 10px 0;
+  }
+  a {
+    text-decoration: none;
+    color: var(--on-surface);
+    padding: 10px;
+    padding-left: 20px;
+    position: relative;
+    right: 20px;
+  }
 </style>

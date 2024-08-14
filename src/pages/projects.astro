@@ -1,29 +1,30 @@
 ---
-import { getEntry } from "astro:content";
 import Project from "../components/Project.astro";
 import Toc from "../components/Toc.astro";
 import TocEntry from "../components/TocEntry.astro";
 import ItemLayout from "../layouts/ItemLayout.astro";
 import { getCollection } from "astro:content";
+import i18next, { t, changeLanguage } from "i18next";
 
-const projects = await getCollection("projects");
+changeLanguage("de");
+
+const projects = await getCollection("projects", ({ id }) => {
+  return id.startsWith(i18next.language);
+});
 ---
 
 <ItemLayout>
-    <h2 slot="header">Projects I made</h2>
-    <Toc slot="toc">
-        {
-            projects.map(async (p) => (
-                <>
-                    <TocEntry
-                        href={"#".concat(p.data.title)}
-                        text={p.data.title}
-                    />
-                </>
-            ))
-        }
-    </Toc>
-    <Fragment slot="items">
-        {projects.map((p) => <Project project={p} />)}
-    </Fragment>
+  <h2 slot="header">{t("projects.header")}</h2>
+  <Toc slot="toc">
+    {
+      projects.map(async (p) => (
+        <>
+          <TocEntry href={"#".concat(p.data.title)} text={p.data.title} />
+        </>
+      ))
+    }
+  </Toc>
+  <Fragment slot="items">
+    {projects.map((p) => <Project project={p} />)}
+  </Fragment>
 </ItemLayout>

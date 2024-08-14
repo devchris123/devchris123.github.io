@@ -1,0 +1,34 @@
+---
+import star from "../images/star.svg";
+
+interface Props {
+  rating: "1" | "2" | "3" | "4" | "5";
+}
+
+const { rating } = Astro.props;
+const arr = Array(parseInt(rating)).fill(0);
+---
+
+<div class="ratings">
+  {
+    arr.map(() => {
+      return (
+        <div class="rating">
+          <img src={star.src} />
+        </div>
+      );
+    })
+  }
+</div>
+
+<style>
+  .ratings {
+    display: flex;
+    position: relative;
+    gap: 10px;
+  }
+  .rating {
+    width: 15px;
+    height: 15px;
+  }
+</style>

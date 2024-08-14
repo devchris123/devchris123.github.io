@@ -28,3 +28,7 @@ pnpm-debug.log*
 
 # vscode settings
 .vscode
+
+# ignore generated languages
+src/pages/en
+src/pages/es
