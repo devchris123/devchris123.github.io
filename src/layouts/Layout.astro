@@ -2,6 +2,7 @@
 import Header from "../components/Header.astro";
 import i18next from "i18next";
 import { HeadHrefLangs } from "astro-i18next/components";
+import Footer from "../components/Footer.astro";
 
 interface Props {
   title: string;
@@ -27,7 +28,7 @@ const { title } = Astro.props;
   <body>
     <main><slot name="main" /></main>
   </body>
-
+  <footer><Footer /></footer>
   <style is:global>
     /* Style reset */
     html,
@@ -203,6 +204,14 @@ const { title } = Astro.props;
       font-family: Roboto, sans-serif, system-ui;
       background: var(--background);
       color: var(--on-background);
+    }
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    footer {
+      margin-top: auto;
     }
     main {
       padding: 20px;
